@@ -255,7 +255,6 @@ contract dumpnofunHook is BaseHook {
     function _unlockCallback(
         bytes calldata rawData
     ) internal virtual override returns (bytes memory) {
-        require(msg.sender == address(manager));
         CallbackData memory data = abi.decode(rawData, (CallbackData));
         if (initialLiquidityDeposited) {
             require(
